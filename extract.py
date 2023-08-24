@@ -4,7 +4,7 @@ import time
 import pandas as pd
 import os
 
-URL = 'https://news.ycombinator.com/item?id=36956867'
+URL = 'https://news.ycombinator.com/item?id=36573871'
 
 def extract_job_postings():
     response = requests.get(URL)
