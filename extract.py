@@ -49,7 +49,7 @@ print(f"Found {len(matched_jobs)} job listings!")
 
 df = pd.DataFrame(matched_jobs)
 
-csv_file = 'job_listings.csv'
+csv_file = 'data/job_listings.csv'
 if os.path.exists(csv_file):
     df.to_csv(csv_file, mode='a', header=False, index=False)
 else:
