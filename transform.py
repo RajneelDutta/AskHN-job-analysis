@@ -22,7 +22,7 @@ def extract_data(description):
         extracted["URL"] = urls[0]
         description = description.replace(extracted["URL"], "") 
 
-    location_pattern = r'\b(Remote|Onsite)\b.*?\|'
+    location_pattern = r'\b(Remote|Onsite|Hybrid)\b.*?'
     location = re.search(location_pattern, description, re.IGNORECASE)
     if location:
         extracted["Location"] = location.group(0).strip('|')
