@@ -47,11 +47,14 @@ def extract_data(description):
     return extracted
 
 df = pd.read_csv('data/job_listings.csv')
+df.drop_duplicates(inplace=True)
 
+# Apply the extract_data function
 extracted_details = df['Description'].apply(extract_data).apply(pd.Series)
-
 df_transformed = pd.concat([df.drop(columns=['Description']), extracted_details], axis=1)
-#print(df_transformed.columns[1])
+
+# Drop duplicates again before saving (for safety)
+df_transformed.drop_duplicates(inplace=True)
 
 csv_file_transformed = 'data/job_listings_transformed.csv'
 if os.path.exists(csv_file_transformed):
